@@ -34,8 +34,6 @@ public class SampleViewModel extends BaseObservable {
         setText(prefix + " : " + clickCounter);
     }
 
-    private String prefix = "Clicked";
-
     public String getPrefix() {
         return prefix;
     }
