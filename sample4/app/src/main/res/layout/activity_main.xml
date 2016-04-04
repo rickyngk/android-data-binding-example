@@ -5,8 +5,7 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="viewModel"
+        <variable name="viewModel"
             type="com.rickyngk.databinding.sample4.SampleViewModel" />
     </data>
 
@@ -27,7 +26,6 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
-
         </android.support.design.widget.AppBarLayout>
 
         <include layout="@layout/content_main" bind:viewModel="@{viewModel}" />
@@ -40,6 +38,6 @@
             android:layout_margin="@dimen/fab_margin"
             android:src="@android:drawable/ic_dialog_email"
             android:onClick="@{viewModel.onSave}"/>
-
     </android.support.design.widget.CoordinatorLayout>
 </layout>
+
