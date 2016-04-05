@@ -5,7 +5,6 @@ import android.content.Context;
 import com.rickyngk.databinding.sample5.MyApp;
 import com.rickyngk.databinding.sample5.inject.component.DaggerDataManagerComponent;
 import com.rickyngk.databinding.sample5.inject.module.DataManagerModule;
-import com.rickyngk.databinding.sample5.model.Contact;
 
 import javax.inject.Inject;
 
@@ -40,7 +39,7 @@ public class DataManager {
     public Scheduler getSubscribeScheduler() {
         return subscribeScheduler;
     }
-    public rx.Observable<Contact> getContacts() {
+    public rx.Observable<ContactResult> getContacts() {
         return contactService.getContacts();
     }
 }

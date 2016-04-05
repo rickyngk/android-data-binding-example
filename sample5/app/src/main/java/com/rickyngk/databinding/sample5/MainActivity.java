@@ -3,6 +3,7 @@ package com.rickyngk.databinding.sample5;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.rickyngk.databinding.sample5.data.ContactResult;
 import com.rickyngk.databinding.sample5.data.DataManager;
 import com.rickyngk.databinding.sample5.model.Contact;
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         dataManager.getContacts()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(dataManager.getSubscribeScheduler())
-                .subscribe(new Subscriber<Contact>() {
+                .subscribe(new Subscriber<ContactResult>() {
                     @Override
                     public void onCompleted() {
 
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onNext(Contact contacts) {
-
+                    public void onNext(ContactResult contactResult) {
+                        System.out.println(contactResult);
                     }
                 });
 

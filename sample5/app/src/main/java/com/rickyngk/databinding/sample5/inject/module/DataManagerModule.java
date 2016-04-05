@@ -1,7 +1,7 @@
 package com.rickyngk.databinding.sample5.inject.module;
 
 import com.rickyngk.databinding.sample5.data.IContactService;
-import com.rickyngk.databinding.sample5.data.MockContactService;
+import com.rickyngk.databinding.sample5.data.RetrofitHelper;
 import com.rickyngk.databinding.sample5.inject.scope.PerDataManager;
 
 import dagger.Module;
@@ -18,7 +18,7 @@ public class DataManagerModule {
     @Provides
     @PerDataManager
     IContactService provideContactDataService() {
-        return new MockContactService();
+        return new RetrofitHelper().newContactService();
     }
 
     @Provides
