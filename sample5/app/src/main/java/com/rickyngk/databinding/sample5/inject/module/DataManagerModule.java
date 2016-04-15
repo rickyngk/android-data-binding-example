@@ -1,6 +1,6 @@
 package com.rickyngk.databinding.sample5.inject.module;
 
-import com.rickyngk.databinding.sample5.data.IContactService;
+import com.rickyngk.databinding.sample5.data.RestApiService;
 import com.rickyngk.databinding.sample5.data.RetrofitHelper;
 import com.rickyngk.databinding.sample5.inject.scope.PerDataManager;
 
@@ -17,8 +17,8 @@ import rx.schedulers.Schedulers;
 public class DataManagerModule {
     @Provides
     @PerDataManager
-    IContactService provideContactDataService() {
-        return new RetrofitHelper().newContactService();
+    RestApiService provideRestApiService() {
+        return new RetrofitHelper().newRestApiService();
     }
 
     @Provides

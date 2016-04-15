@@ -5,9 +5,11 @@ import android.content.Context;
 import com.rickyngk.databinding.sample5.MyApp;
 import com.rickyngk.databinding.sample5.inject.component.DaggerDataManagerComponent;
 import com.rickyngk.databinding.sample5.inject.module.DataManagerModule;
+import com.rickyngk.databinding.sample5.model.Question;
 
 import javax.inject.Inject;
 
+import rx.Observable;
 import rx.Scheduler;
 
 /**
@@ -15,7 +17,7 @@ import rx.Scheduler;
  */
 public class DataManager {
     @Inject
-    protected IContactService contactService;
+    protected RestApiService restApiService;
     @Inject
     protected Scheduler subscribeScheduler;
 
@@ -23,8 +25,8 @@ public class DataManager {
         injectDependency(context);
     }
 
-    public DataManager(IContactService contactService, Scheduler scheduler) {
-        this.contactService = contactService;
+    public DataManager(RestApiService restApiService, Scheduler scheduler) {
+        this.restApiService = restApiService;
         this.subscribeScheduler = scheduler;
     }
 
@@ -39,7 +41,7 @@ public class DataManager {
     public Scheduler getSubscribeScheduler() {
         return subscribeScheduler;
     }
-    public rx.Observable<ContactResult> getContacts() {
-        return contactService.getContacts();
+    public Observable<RestApiListResult<Question>> getQuestions() {
+        return restApiService.getQuestions();
     }
 }
